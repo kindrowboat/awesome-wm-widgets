@@ -53,7 +53,7 @@ local weather_popup = awful.popup {
     shape = gears.shape.rounded_rect,
     border_width = 1,
     border_color = beautiful.bg_focus,
-    maximum_width = 400,
+    maximum_width = 1000,
     offset = {y = 5},
     hide_on_right_click = true,
     widget = {}
@@ -263,7 +263,7 @@ local function worker(user_args)
             forced_width = 150,
             layout = wibox.layout.fixed.vertical
         },
-        forced_width = 300,
+        forced_width = 1000,
         layout = wibox.layout.flex.horizontal,
         update = function(self, weather)
             self:get_children_by_id('icon')[1]:set_image(
@@ -281,7 +281,7 @@ local function worker(user_args)
 
 
     local daily_forecast_widget = {
-        forced_width = 300,
+        forced_width = 1000,
         layout = wibox.layout.flex.horizontal,
         update = function(self, forecast, timezone_offset)
             local count = #self
@@ -340,11 +340,11 @@ local function worker(user_args)
     }
 
     local hourly_forecast_graph = wibox.widget {
-        step_width = 12,
+        step_width = 39,
         color = '#EBCB8B',
         background_color = beautiful.bg_normal,
         forced_height = 100,
-        forced_width = 300,
+        forced_width = 1000,
         widget = wibox.widget.graph,
         set_max_value = function(self, new_max_value)
             self.max_value = new_max_value
@@ -354,11 +354,11 @@ local function worker(user_args)
         end
     }
     local hourly_forecast_negative_graph = wibox.widget {
-        step_width = 12,
+        step_width = 39,
         color = '#5E81AC',
         background_color = beautiful.bg_normal,
         forced_height = 100,
-        forced_width = 300,
+        forced_width = 1000,
         widget = wibox.widget.graph,
         set_max_value = function(self, new_max_value)
             self.max_value = new_max_value
@@ -373,12 +373,12 @@ local function worker(user_args)
         update = function(self, hourly)
             local hours_below = {
                 id = 'hours',
-                forced_width = 300,
+                forced_width = 1000,
                 layout = wibox.layout.flex.horizontal
             }
             local temp_below = {
                 id = 'temp',
-                forced_width = 300,
+                forced_width = 1000,
                 layout = wibox.layout.flex.horizontal
             }
 
